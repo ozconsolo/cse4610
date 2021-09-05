@@ -1,0 +1,66 @@
+#include <fstream>
+
+fstream
+
+ofstream only output
+ifstream only input
+
+fstream both
+
+---------------------------------------------------------------------
+synch //
+
+ofstream outstream;
+
+ofstream.open(filename.c_str());
+
+for (int = 0; i < user.size(); i++)
+{
+    outstream << user[i] << " " << password[i] << endl;
+}
+
+outstream.close();
+
+
+---------------------------------------------------------------------
+** ofstream clobbers output file
+
+ifstream infile;
+
+infile.open(filename.c_str());
+
+string u, p;
+
+infile >> u >> p;
+
+while (infile.good()){
+    user.push_back(u);
+    password.push_back(p);
+    infile >> u >> p;
+}
+
+infile.close();
+
+
+----------------------------------------------------------------------
+
+delete user //
+
+void delUser(string user){
+    it.erase()
+
+    vector<string>:: iterator it1, it2;
+
+    it2 = password.begin();
+
+    for (it1 = user.begin(); it1 = user.end(); it1++) {
+        if (*it1 == user) {
+            it1.erase();
+            it2.erase();
+            synch();
+            return;
+    }
+}
+}
+
+add encrypt to class
