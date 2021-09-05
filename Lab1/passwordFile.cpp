@@ -24,6 +24,26 @@ private:
     void synch(); // writes the user / password vectors to the password file
 };
 
+
+PasswordFile::PasswordFile(string newFilename){
+    filename = newFilename;
+    string u, p;
+
+    ifstream infile;
+    infile.open(filename.c_str());
+
+    infile >> u >> p;
+
+    while (infile.good()){
+        user.push_back(u);
+        password.push_back(p);
+        infile >> u >> p;
+    }
+
+    infile.close();
+}
+
+
 int PasswordFile::salt=1;
 
 void PasswordFile::newSalt(int ns){
@@ -46,24 +66,6 @@ string PasswordFile::decrypt(string s){
     return s;
 }
 
-PasswordFile::PasswordFile(string newFilename){
-    filename = newFilename;
-    string u, p;
-
-    ifstream infile;
-    infile.open(filename.c_str());
-
-    infile >> u >> p;
-
-    while (infile.good()){
-        user.push_back(u);
-        password.push_back(p);
-        infile >> u >> p;
-    }
-
-    infile.close();
-}
-
 
 void PasswordFile::synch(){
     ofstream outstream;
@@ -79,12 +81,23 @@ void PasswordFile::synch(){
 
 void PasswordFile::addPw(string newUser, string newPassword){
     string encryptedUser = encrypt(newUser);
-    string encryptPass = encrypt(newPassword);
+    string encryptedPass = encrypt(newPassword);
+    vector<string> :: iterator it;
+
+    for (it = user.begin(); it != user.end(); it++){
+        if (*it == encryptedUser){
+            cout << "Username already exists!" << endl;
+            return;
+        }
+    }
 
     user.push_back(encryptedUser);
-    password.push_back(encryptPass);
+    password.push_back(encryptedPass);
 
     synch();
+
+    cout << "Username: " << newUser << " added successfully!" << endl;
+    cout << "Encrypted Username: " << encryptedUser << " Encrypted Password: " << encryptedPass << endl << endl;
 
 }
 
@@ -100,6 +113,9 @@ void PasswordFile::delUser(string userToDelete){
             it1->erase();
             it2->erase();
             synch();
+
+            cout << userToDelete << " deleted successfully" << endl;
+
             return;
         }
 
@@ -131,11 +147,20 @@ bool PasswordFile::checkPw(string checkUser, string checkPassword){
 
 
 int main(){
+
     PasswordFile passFile("password.txt");
 
-    passFile.delUser("egomez");
+    passFile.addPw("egomez", "qwerty");
+    passFile.addPw("tongyu", "strawberry");
+    passFile.addPw("eddie", "orange");
+    passFile.addPw("egomez", "qwerty");
+
+    passFile.delUser("tongyu");
 
     passFile.checkPw("jsmith", "turtle");
+    passFile.checkPw("madams", "mapple");
+    passFile.checkPw("ggomez", "qwerty");
+    passFile.checkPw("eddie", "orange");
 
     return 0;
 
