@@ -1,0 +1,71 @@
+Script started on Tue Sep  7 08:59:02 2021
+Restored session: Tue Sep  7 08:57:39 PDT 2021
+[1m[7m%[27m[1m[0m                                                                                                         ]7;file://Azaels-MacBook-Air.local/Users/azaelconsolo/cse4610/Lab1[0m[27m[24m[Jazaelconsolo@Azaels-MacBook-Air Lab1 % [K[?2004hccat password.txt[?2004l
+jsmith turtle
+madams apple
+[1m[7m%[27m[1m[0m                                                                                                         ]7;file://Azaels-MacBook-Air.local/Users/azaelconsolo/cse4610/Lab1[0m[27m[24m[Jazaelconsolo@Azaels-MacBook-Air Lab1 % [K[?2004h../cse46100 Lab1[?2004l
+Enter a username to add (Enter 0 to exit): azael  
+Enter a password: consoo lo
+Username: azael added successfully!
+Encrypted Username: b{bfm Encrypted Password: dpotpmp
+
+Enter a username to add (Enter 0 to exit): g egomez 123qwert         
+Enter a password: 123qwe
+Username: egomez added successfully!
+Encrypted Username: fhpnf{ Encrypted Password: 234rxf
+
+Enter a username to add (Enter 0 to exit): newuser
+Enter a password: newpassword
+Username: newuser added successfully!
+Encrypted Username: ofxvtfs Encrypted Password: ofxqbttxpse
+
+Enter a username to add (Enter 0 to exit): othernewuser
+Enter a password: othernewpassword
+Username: othernewuser added successfully!
+Encrypted Username: puifsofxvtfs Encrypted Password: puifsofxqbttxpse
+
+Enter a username to add (Enter 0 to exit): tho isuser
+Enter a password: thispassword
+Username: thisuser added successfully!
+Encrypted Username: uijtvtfs Encrypted Password: uijtqbttxpse
+
+Enter a username to add (Enter 0 to exit): 0
+
+Enter a username to delete (Enter 0 to exit): newuser
+newuser deleted successfully
+Enter a username to delete (Enter 0 to exit): newpassword
+Enter a username to delete (Enter 0 to exit): new   othernewuser
+othernewuser deleted successfully
+Enter a username to delete (Enter 0 to exit): 0
+
+Enter a username to check (Enter 0 to exit): newuser
+Enter the password for this username (Enter 0 to exit): nee wpassword
+username: newuser and password do not match :-(
+Enter a username to check (Enter 0 to exit): egomez
+Enter the password for this username (Enter 0 to exit): 123qwe
+username: egomez and password match!
+Enter a username to check (Enter 0 to exit): azael
+Enter the password for this username (Enter 0 to exit): consolo
+username: azael and password match!
+Enter a username to check (Enter 0 to exit): this  user
+Enter the password for this username (Enter 0 to exit): thispassword
+username: thisuser and password match!
+Enter a username to check (Enter 0 to exit): thatuser
+Enter the password for this username (Enter 0 to exit): thatpasss word
+username: thatuser and password do not match :-(
+Enter a username to check (Enter 0 to exit): 0
+
+[1m[7m%[27m[1m[0m                                                                                                         ]7;file://Azaels-MacBook-Air.local/Users/azaelconsolo/cse4610/Lab1[0m[27m[24m[Jazaelconsolo@Azaels-MacBook-Air Lab1 % [K[?2004hccat [p  passwr ord.txt[?2004l
+jsmith turtle
+madams apple
+b{bfm dpotpmp
+fhpnf{ 234rxf
+ 
+ 
+uijtvtfs uijtqbttxpse
+[1m[7m%[27m[1m[0m                                                                                                         ]7;file://Azaels-MacBook-Air.local/Users/azaelconsolo/cse4610/Lab1[0m[27m[24m[Jazaelconsolo@Azaels-MacBook-Air Lab1 % [K[?2004heexit[?2004l
+Saving session...
+...saving history...truncating history files...
+...completed.
+
+Script done on Tue Sep  7 09:03:27 2021

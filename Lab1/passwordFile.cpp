@@ -1,3 +1,7 @@
+// Name: Azael Consolo
+// CSE 4610
+// Lab 1
+
 #include<iostream>
 #include<fstream>
 #include<vector>
@@ -149,18 +153,54 @@ bool PasswordFile::checkPw(string checkUser, string checkPassword){
 int main(){
 
     PasswordFile passFile("password.txt");
+    string username;
+    string password;
+    bool isTrue = true;
 
-    passFile.addPw("egomez", "qwerty");
-    passFile.addPw("tongyu", "strawberry");
-    passFile.addPw("eddie", "orange");
-    passFile.addPw("egomez", "qwerty");
+    while (isTrue){
+        cout << "Enter a username to add (Enter 0 to exit): ";
+        cin >> username;
 
-    passFile.delUser("tongyu");
+        if (username == "0"){
+            break;
+        }
 
-    passFile.checkPw("jsmith", "turtle");
-    passFile.checkPw("madams", "mapple");
-    passFile.checkPw("ggomez", "qwerty");
-    passFile.checkPw("eddie", "orange");
+        cout << "Enter a password: ";
+        cin >> password;
+
+        passFile.addPw(username, password);
+    }
+
+    cout << endl;
+
+    while (isTrue){
+        cout << "Enter a username to delete (Enter 0 to exit): ";
+        cin >> username;
+
+        if (username == "0"){
+            break;
+        }
+
+        passFile.delUser(username);
+    }
+
+    cout << endl;
+
+    while (isTrue){
+        cout << "Enter a username to check (Enter 0 to exit): ";
+        cin >> username;
+
+        if (username == "0"){
+            break;
+        }
+
+        cout << "Enter the password for this username (Enter 0 to exit): ";
+        cin >> password;
+
+        passFile.checkPw(username, password);
+    }
+
+    cout << endl;
 
     return 0;
 
