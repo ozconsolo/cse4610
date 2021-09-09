@@ -20,7 +20,7 @@ private:
 };
 
 Sdisk::Sdisk(string diskname,int numberOfBlocks, int blockSize){
-	
+
 	this -> diskname = diskname;
 	this -> numberOfBlocks = numberOfBlocks;
 	this -> blockSize = blockSize;
@@ -36,12 +36,35 @@ Sdisk::Sdisk(string diskname,int numberOfBlocks, int blockSize){
 
 	else {
 		iofile.close();
-		
+
 		ofstream outfile;
-		outfile.open(diskname.c_str());
+		outfile.open(diskname.c_str(), ios::out);
 
 		for (int i = 0; i < numberOfBlocks * blockSize; i++){
-		
+			outfile.put("#");
 		}
+
+		outfile.close();
+		return;
 	}
+}
+
+
+int Sdisk::getBlock(int blockNumber, string& buffer){
+
+}
+
+
+int Sdisk::putBlock(int blockNumber, string buffer){
+
+}
+
+
+int Sdisk::getNumberOfBlocks(){
+	return numberOfBlocks;
+}
+
+
+int Sdisk::getBlockSize(){
+	return blockSize;
 }
