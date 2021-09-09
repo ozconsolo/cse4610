@@ -1,11 +1,12 @@
 // Name: Azael Consolo
 // CSE 4610
 
-#include<fstream>;
+#include<fstream>
+#include<iostream>
 
 using namespace std;
 
-Class Sdisk {
+class Sdisk {
 public:
 	Sdisk(string diskname, int numberOfBlocks, int blockSize);
 	int getBlock(int blockNumber, string& buffer);
@@ -25,7 +26,7 @@ Sdisk::Sdisk(string diskname,int numberOfBlocks, int blockSize){
 	this -> numberOfBlocks = numberOfBlocks;
 	this -> blockSize = blockSize;
 
-	fstring iofile;
+	ifstream iofile;
 
 	iofile.open(diskname.c_str(), ios::in);
 
@@ -41,7 +42,7 @@ Sdisk::Sdisk(string diskname,int numberOfBlocks, int blockSize){
 		outfile.open(diskname.c_str(), ios::out);
 
 		for (int i = 0; i < numberOfBlocks * blockSize; i++){
-			outfile.put("#");
+			outfile.put('#');
 		}
 
 		outfile.close();
@@ -50,14 +51,14 @@ Sdisk::Sdisk(string diskname,int numberOfBlocks, int blockSize){
 }
 
 
-int Sdisk::getBlock(int blockNumber, string& buffer){
-
-}
-
-
-int Sdisk::putBlock(int blockNumber, string buffer){
-
-}
+// int Sdisk::getBlock(int blockNumber, string& buffer){
+//
+// }
+//
+//
+// int Sdisk::putBlock(int blockNumber, string buffer){
+//
+// }
 
 
 int Sdisk::getNumberOfBlocks(){
@@ -67,4 +68,11 @@ int Sdisk::getNumberOfBlocks(){
 
 int Sdisk::getBlockSize(){
 	return blockSize;
+}
+
+
+int main(){
+	Sdisk filedisk("newDisk",5,10);
+
+	return 0;
 }
