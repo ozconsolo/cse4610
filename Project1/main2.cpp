@@ -41,4 +41,6 @@ int main()
 
   fsys.delblock("file2",blocknumber);
 
+  return 0;
+
 }

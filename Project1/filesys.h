@@ -12,7 +12,7 @@ using namespace std;
 
 vector<string> block(string buffer, int b);
 
-class Filesys:public Sdisk {
+class Filesys: public Sdisk {
     
 public:
     Filesys(string diskname, int numberofblocks, int blocksize);
@@ -25,6 +25,8 @@ public:
     int readblock(string file, int blocknumber, string& buffer);
     int writeblock(string file, int blocknumber, string buffer);
     int nextblock(string file, int blocknumber);
+    int fssynch();
+    bool checkblock(string file, int blocknumber);
     vector<string> ls();
 
 private:
@@ -33,10 +35,6 @@ private:
     vector<string> filename; // filenames in ROOT
     vector<int> firstblock;    // firstblocks in ROOT
     vector<int> fat;           // FAT
-    int fssynch();
-    void buildfs();
-    void readfs();
-    bool checkblock(string file, int blocknumber);
 };
 
 #endif

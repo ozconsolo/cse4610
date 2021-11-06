@@ -25,6 +25,7 @@ Sdisk::Sdisk(string diskname,int numberofblocks, int blocksize){
 		outfile.open(diskname.c_str(), ios::out);
 
 		for (int i = 0; i < numberofblocks * blocksize; i++){
+			
 			outfile.put('#');
 		}
 

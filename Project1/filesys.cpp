@@ -43,19 +43,19 @@ Filesys::Filesys(string diskname, int numberofblocks, int blocksize):Sdisk(diskn
     else{
 
         // Read existing filesystem
-        istringstream istream;
         string buffer;
-             
         getblock(1, buffer);
+             
+        istringstream istream;
         istream.str(buffer);
 
         for (int i = 0; i < rootsize; i++){
-            string s;
-            int t;
+            string fn;
+            int fb;
 
-            istream >> s >> t;
-            filename.push_back(s);
-            firstblock.push_back(t);
+            istream >> fn >> fb;
+            filename.push_back(fn);
+            firstblock.push_back(fb);
         }
 
         string fatbuffer;
@@ -91,38 +91,27 @@ int Filesys::fssynch(){
 
     // write root and fat to disk
 
-    ostringstream ostream1;
+    ostringstream ostream1, ostream2;
 
     for (int i = 0; i < rootsize; i++){
 
         ostream1 << filename[i] << " " << firstblock[i] << " ";
     }
 
-    string buffer1 = ostream1.str();
-    vector<string> blocks1 = block(buffer1, getblocksize());
-
-    putblock(1, blocks1[0]);
-
-    ostringstream ostream2;
-
-    // for (int i = 0; i < fat.size(); i++){
-
-    //     ostream2 << fat[i] << " ";
-    // }
-
-    for (int i = 0; i < getnumberofblocks(); i++){
+    for (int i = 0; i < fat.size(); i++){
 
         ostream2 << fat[i] << " ";
     }
 
-    string buffer2 = ostream2.str();
+    vector<string> blocks1 = block(ostream1.str(), getblocksize());
 
-    vector<string> blocks2 = block(buffer2, getblocksize());
-    putblock(1, blocks2[0]);
+    putblock(0, blocks1[0]);
+
+    vector<string> blocks2 = block(ostream2.str(), getblocksize());
 
     for (int i = 0; i < fatsize; i++){
 
-        putblock(2 + i, blocks2[i]);
+        putblock(i, blocks2[i - 1]);
 
     }
 
